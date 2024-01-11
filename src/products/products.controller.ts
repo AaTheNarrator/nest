@@ -1,4 +1,4 @@
-import {Body, Controller, Post, UseGuards} from '@nestjs/common';
+import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {ProductsService} from "./products.service";
 import {CreateProductDto} from "./dto/create-product.dto";
@@ -22,5 +22,15 @@ export class ProductsController {
     @Post()
     createProduct(@Body() dto : CreateProductDto){
         return this.productsService.createProduct(dto)
+    }
+
+
+    @ApiOperation({summary:'Список всех продуктов'})
+    @ApiResponse({status:200, type:Product})
+    @Roles('MANUFACTURER')
+    @UseGuards(JwtAuthGuard)
+    @Get()
+    getAllProducts(){
+        return this.productsService.getAllProducts()
     }
 }

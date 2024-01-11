@@ -14,6 +14,9 @@ import {RolesModule} from "../roles/roles.module";
   imports:[
     SequelizeModule.forFeature([Customer,Cart,Order,Role]),
       RolesModule
+  ],
+  exports:[
+    CustomersService
   ]
 })
 export class CustomersModule {}

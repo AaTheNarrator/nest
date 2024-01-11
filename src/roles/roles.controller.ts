@@ -4,6 +4,7 @@ import {CreateRoleDto} from "./dto/create-role.dto";
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {Manufacturer} from "../manufacturers/manufacturer.model";
 import {Role} from "./role.model";
+import { AddRoleToUserDto } from './dto/add-role-to-user.dto';
 
 @ApiTags('Роли')
 @Controller('roles')
@@ -24,5 +25,12 @@ export class RolesController {
     @Get('/:role_name')
     getRoleByRoleName(@Param('role_name') role_name : string){
         return this.rolesService.getRoleByRoleName(role_name)
+    }
+
+    @ApiOperation({summary:'Добавить роль пользователю'})
+    @ApiResponse({status:200, type:Manufacturer})
+    @Post('/addRoleToUser')
+    addRoleToUser(@Body() dto: AddRoleToUserDto){
+        return this.rolesService.addRoleToUser(dto)
     }
 }

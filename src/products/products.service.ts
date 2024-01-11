@@ -14,6 +14,10 @@ export class ProductsService {
     }
 
     async getProductByProductName(product_name: string){
-        return this.productsRepository.findOne({where:{product_name}})
+        return await this.productsRepository.findOne({where:{product_name}})
+    }
+
+    async getAllProducts(){
+        return await this.productsRepository.findAll()
     }
 }
