@@ -13,10 +13,34 @@ export class RecipesService {
 
     async createRecipe(dto: CreateRecipeDto, login : string) {
         let manufacturer = await this.manufacturersService.searchManufacturerByLogin(login)
-        return this.recipeRepository.create({...dto, 'manufacturer_id': manufacturer.manufacturer_id})
+        return await this.recipeRepository.create({...dto, 'manufacturer_id': manufacturer.manufacturer_id})
     }
 
     async getRecipeByRecipeName(recipe_name: string){
-        return this.recipeRepository.findOne({where:{recipe_name}})
+        return await this.recipeRepository.findOne({where:{recipe_name}})
+    }
+
+    async getRecipeByManufacturer(login : string){
+        let manufacturer = await this.manufacturersService.searchManufacturerByLogin(login)
+        return await this.recipeRepository.findAll(
+            {
+                where : {
+                    manufacturer_id: manufacturer.manufacturer_id
+                },
+                include: {
+                    all:true
+                }
+            }
+        )
+    }
+
+    async getAllRecipe(){
+        return await this.recipeRepository.findAll(
+            {
+                include: {
+                    all:true
+                }
+            }
+        )
     }
 }

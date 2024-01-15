@@ -33,6 +33,10 @@ export class Recipe extends Model<Recipe,RecipeCreationAttrs>{
     @Column({type:DataType.INTEGER})
     manufacturer_id : number
 
+    @ApiProperty({example:'/photo/123.jpg', description : 'Путь до фото'})
+    @Column({type:DataType.STRING})
+    path_to_photo : string
+
     @BelongsTo(()=>Manufacturer,'manufacturer_id')
     manufacturer : Manufacturer
 

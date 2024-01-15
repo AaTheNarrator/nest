@@ -1,4 +1,4 @@
-import {Body, Controller, Post, Headers, UseGuards, Req} from '@nestjs/common';
+import {Body, Controller, Post, Headers, UseGuards, Req, Get} from '@nestjs/common';
 import {CreateRecipeDto} from "./dto/create-recipe.dto";
 import {RecipesService} from "./recipes.service";
 import {Roles} from "../auth/roles-auth.decorator";
@@ -22,5 +22,23 @@ export class RecipesController {
     @Post()
     createRecipe(@Body() dto : CreateRecipeDto, @Req() req : any){
         return this.recipesService.createRecipe(dto, req.company.login)
+    }
+
+    @ApiOperation({summary:'Все рецепты одного производителя'})
+    @ApiResponse({status:200, type:Recipe})
+    @Roles('MANUFACTURER', 'CUSTOMER')
+    @UseGuards(JwtAuthGuard)
+    @Get('/byManufacturer')
+    getRecipeByManufacturer(@Req() req : any){
+        return this.recipesService.getRecipeByManufacturer(req.company.login)
+    }
+
+    @ApiOperation({summary:'Все рецепты всех производителей'})
+    @ApiResponse({status:200, type:Recipe})
+    @Roles('CUSTOMER')
+    @UseGuards(JwtAuthGuard)
+    @Get()
+    getAllRecipe(){
+        return this.recipesService.getAllRecipe()
     }
 }

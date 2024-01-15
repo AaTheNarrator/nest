@@ -19,4 +19,12 @@ export class CustomersService {
         await customer.save()
         return customer
     }
+
+    async getCustomerByLogin(login : string){
+        return await this.customerRepository.findOne(
+            {
+                where:{login},
+                include:{all:true}
+            })
+    }
 }
