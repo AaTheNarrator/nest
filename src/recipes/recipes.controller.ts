@@ -1,4 +1,4 @@
-import {Body, Controller, Post, Headers, UseGuards, Req, Get} from '@nestjs/common';
+import {Body, Controller, Post, Headers, UseGuards, Req, Get, Patch} from '@nestjs/common';
 import {CreateRecipeDto} from "./dto/create-recipe.dto";
 import {RecipesService} from "./recipes.service";
 import {Roles} from "../auth/roles-auth.decorator";
@@ -40,5 +40,14 @@ export class RecipesController {
     @Get()
     getAllRecipe(){
         return this.recipesService.getAllRecipe()
+    }
+
+    @ApiOperation({summary:'Изменение рецепта для производителя'})
+    @ApiResponse({status:200, type:Recipe})
+    @Roles('MANUFACTURER')
+    @UseGuards(JwtAuthGuard)
+    @Patch()
+    updateRecipe(@Body() dto : any, @Req() req : any){
+        return this.recipesService.changeDataInRecipe(dto)
     }
 }

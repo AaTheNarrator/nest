@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import {CreateRecipeDto} from "./dto/create-recipe.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {Recipe} from "./recipe.model";
 import {ManufacturersService} from "../manufacturers/manufacturers.service";
+
 
 @Injectable()
 export class RecipesService {
@@ -19,6 +20,13 @@ export class RecipesService {
     async getRecipeByRecipeName(recipe_name: string){
         return await this.recipeRepository.findOne({where:{recipe_name}})
     }
+
+    async changeDataInRecipe( newData: any) {
+        const recipe = await this.recipeRepository.findByPk(newData.recipe_id)
+        
+        await recipe.update(newData);
+        return recipe;
+      }
 
     async getRecipeByManufacturer(login : string){
         let manufacturer = await this.manufacturersService.searchManufacturerByLogin(login)

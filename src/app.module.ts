@@ -22,6 +22,8 @@ import {Order} from "./orders/order.model";
 import { RolesModule } from './roles/roles.module';
 import {Role} from "./roles/role.model";
 import { AuthModule } from './auth/auth.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import path, { join } from 'path';
 
 
 
@@ -29,6 +31,9 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot({
       envFilePath:'.env'
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: path.resolve(__dirname, 'static')
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
