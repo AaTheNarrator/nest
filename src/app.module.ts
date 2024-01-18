@@ -33,7 +33,7 @@ import path, { join } from 'path';
       envFilePath:'.env'
     }),
     ServeStaticModule.forRoot({
-      rootPath: path.resolve(__dirname, 'static')
+      rootPath: join(__dirname,'..', 'static'),
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
