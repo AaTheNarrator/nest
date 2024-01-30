@@ -7,6 +7,7 @@ import {Customer} from "../customers/customer.model";
 import {Cart} from "./cart.model";
 import { CustomersModule } from 'src/customers/customers.module';
 import { RecipesModule } from 'src/recipes/recipes.module';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   providers: [CartService],
@@ -15,6 +16,7 @@ import { RecipesModule } from 'src/recipes/recipes.module';
     SequelizeModule.forFeature([Cart,Customer,Recipe]),
     forwardRef(()=> CustomersModule),
     forwardRef(()=> RecipesModule),
+    forwardRef(()=> AuthModule),
   ]
 })
 export class CartModule {}

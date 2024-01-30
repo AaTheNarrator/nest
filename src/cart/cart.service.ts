@@ -13,8 +13,8 @@ export class CartService {
         @Inject(forwardRef(()=> RecipesService)) private recipesService : RecipesService){}
 
 
-    async addProductToCart(dto : AddItemToCartDto){
-        let customer = await this.customersService.getCustomerByLogin(dto.login_customer)
+    async addProductToCart(dto : AddItemToCartDto, login : string){
+        let customer = await this.customersService.searchCustomerByLogin(login)
         let recipe = await this.recipesService.getRecipeByRecipeName(dto.product_name)
         let newObj = {
             customer_id : customer.customer_id,
@@ -22,5 +22,10 @@ export class CartService {
             amount : dto.amount
         }
         return await this.cartRepository.create(newObj)
+    }
+
+    async getCartByLogin(login : string){
+        let customer = await this.customersService.searchCustomerByLogin(login)
+        return await this.cartRepository.findAll({where:{customer_id : customer.customer_id},include:{all:true}})
     }
 }

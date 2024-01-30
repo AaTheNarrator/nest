@@ -12,10 +12,10 @@ export class CustomersController {
     constructor(private customersService: CustomersService) {
     }
 
-    @ApiOperation({summary:'Создание заказчика'})
-    @ApiResponse({status:200, type:Customer})
-    @Post()
-    createCustomer(@Body() dto : CreateCompanyDto){
-        return this.customersService.createCustomer(dto)
-    }
+    // @ApiOperation({summary:'Создание заказчика'})
+    // @ApiResponse({status:200, type:Customer})
+    // @Post()
+    // createCustomer(@Body() dto : CreateCompanyDto){
+    //     return this.customersService.createCustomer(dto)
+    // }
 }

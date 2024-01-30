@@ -43,11 +43,11 @@ import path, { join } from 'path';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       models: [
+          Warehouse,
           Manufacturer,
           Recipe,
           Product,
           RecipesProducts,
-          Warehouse,
           Cart,
           Customer,
           Order,
@@ -67,8 +67,8 @@ import path, { join } from 'path';
     AuthModule,
 
   ],
-  controllers: [OrdersController, ],
-  providers: [WarehouseService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {
   constructor() {

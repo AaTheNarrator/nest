@@ -11,11 +11,11 @@ export class ManufacturersController {
     constructor(private manufacturersService : ManufacturersService) {
     }
 
-    @ApiOperation({summary:'Создание производителя'})
-    @ApiResponse({status:200, type:Manufacturer})
-    @Post()
-    createManufacturer(@Body() manufacturerDto : CreateCompanyDto){
-        return this.manufacturersService.createManufacturer(manufacturerDto)
-    }
+    // @ApiOperation({summary:'Создание производителя'})
+    // @ApiResponse({status:200, type:Manufacturer})
+    // @Post()
+    // createManufacturer(@Body() manufacturerDto : CreateCompanyDto){
+    //     return this.manufacturersService.createManufacturer(manufacturerDto)
+    // }
 
 }

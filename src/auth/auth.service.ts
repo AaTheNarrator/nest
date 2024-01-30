@@ -5,11 +5,13 @@ import {CreateCompanyDto} from "../manufacturers/dto/create-company.dto";
 import { JwtService} from "@nestjs/jwt";
 import * as bcrypt from 'bcryptjs'
 import {Manufacturer} from "../manufacturers/manufacturer.model";
+import { CustomersService } from 'src/customers/customers.service';
 
 @Injectable()
 export class AuthService {
 
     constructor(private manufacturersService : ManufacturersService,
+                private customerService : CustomersService,
                 private jwtService : JwtService) {
     }
 
@@ -29,7 +31,22 @@ export class AuthService {
         return this.generateToken(manufacturer)
     }
 
-    private async generateToken(company : Manufacturer) {
+    async registrationCustomer(dto : CreateCompanyDto){
+        const candidate = await this.customerService.searchCustomerByLogin(dto.login)
+        if (candidate){
+            throw new HttpException('Пользователь уже существует', HttpStatus.BAD_REQUEST)
+        }
+        const hasPassword = await bcrypt.hash(dto.password, 5)
+        const customer = await this.customerService.createCustomer({...dto, password: hasPassword})
+        return this.generateToken(customer)
+    }
+
+    async loginCustomer(dto : LoginCompanyDto){
+        const customer = await this.validateCustomer(dto)
+        return this.generateToken(customer)
+    }
+
+    private async generateToken(company : any) {
         const payLoad = {
             login : company.login,
             role : company.role
@@ -44,6 +61,15 @@ export class AuthService {
         const passwordEquals = await bcrypt.compare(dto.password, manufacturer.password)
         if(manufacturer && passwordEquals){
             return manufacturer
+        }
+        throw new UnauthorizedException({message:'Некоректный логин или пароль'})
+    }
+
+    private async validateCustomer(dto: LoginCompanyDto) {
+        const customer = await this.customerService.searchCustomerByLogin(dto.login)
+        const passwordEquals = await bcrypt.compare(dto.password, customer.password)
+        if(customer && passwordEquals){
+            return customer
         }
         throw new UnauthorizedException({message:'Некоректный логин или пароль'})
     }

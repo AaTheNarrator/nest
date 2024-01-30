@@ -17,10 +17,11 @@ export class CustomersService {
         const role = await this.roleService.getRoleByRoleName('CUSTOMER')
         customer.role_id = role.role_id
         await customer.save()
+        customer.role = role
         return customer
     }
 
-    async getCustomerByLogin(login : string){
+    async searchCustomerByLogin(login : string){
         return await this.customerRepository.findOne(
             {
                 where:{login},

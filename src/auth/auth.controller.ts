@@ -25,4 +25,19 @@ export class AuthController {
     registrationManufacturer(@Body() dto : CreateCompanyDto){
         return this.authService.registrationManufacturer(dto)
     }
+
+
+    @ApiOperation({summary:'Вход для заказчика'})
+    @ApiResponse({status:200, type: String, description: 'JWT Token'})
+    @Post('login/customer')
+    loginCustomer(@Body() dto : LoginCompanyDto){
+        return this.authService.loginCustomer(dto)
+    }
+
+    @ApiOperation({summary:'Регистрация для заказчика'})
+    @ApiResponse({status:200, type: String, description: 'JWT Token'})
+    @Post('registration/customer')
+    registrationCustomer(@Body() dto : CreateCompanyDto){
+        return this.authService.registrationCustomer(dto)
+    }
 }
