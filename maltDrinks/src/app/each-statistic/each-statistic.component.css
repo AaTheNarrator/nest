@@ -1,0 +1,18 @@
+.main{
+    border-top: 2px  solid #eba46b;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item , .item1, .item2{
+    text-align: center;
+}
+
+.item,.item1{
+    width: 20%;
+}
+
+.item1{
+    text-shadow: 1px 1px 5px #afafaf;
+}

@@ -1,0 +1,9 @@
+<div class="main" *ngIf="visible">
+    <div class="right">
+        <input type="checkbox" [(ngModel)]="product.isSelected">
+        <h4>{{product.name}}</h4>
+        <div class="void"> </div>
+    </div>
+    <div class="item"><input type="text" [(ngModel)]="product.amount"(focus)="setEditable(true)"></div>
+</div>
+

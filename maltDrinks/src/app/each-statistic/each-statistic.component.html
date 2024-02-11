@@ -1,0 +1,8 @@
+<div class="main">
+    <div class="item"><p>{{each.month}}</p></div>
+    <div class="item"><p>{{each.sales_amount | currency:'USD':'symbol-narrow'}}</p></div>
+    <div class="item"><p>{{each.amount_of_profit | currency:'USD':'symbol-narrow'}}</p></div>
+    <div class="item1"><p>{{each.profit_change | currency:'USD':'symbol-narrow'}}</p></div>
+    <div class="item1"><p>{{each.profit_change_percent + '%'}}</p></div>
+</div>
+

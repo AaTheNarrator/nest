@@ -1,0 +1,10 @@
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.item,.item1{
+    text-align: center;
+    width: 20%;
+}

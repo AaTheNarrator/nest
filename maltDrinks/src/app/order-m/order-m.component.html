@@ -1,0 +1,8 @@
+<div class="main" *ngIf="visible">
+    <div class="item"><h4>{{order.namecompany}}</h4></div>
+    <div class="item"><h4>{{order.name}}</h4></div>
+    <div class="item1"><h4>{{order.amount}}</h4></div>
+    <div class="item1"><h4>{{order.price | currency:'USD':'symbol-narrow'}}</h4></div>
+    <div class="item1"><h4>{{order.delivery_date | dateformat}}</h4></div>
+</div>
+

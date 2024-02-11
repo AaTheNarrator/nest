@@ -1,0 +1,15 @@
+<div class="title" >
+    <div class="item"><h4>Производитель</h4></div>
+    <div class="item"><h4>Название товара</h4></div>
+    <div class="item1"><h4>Количество партий</h4></div>
+    <div class="item1"><h4>Общая стоимость</h4></div>
+    <div class="item1"></div>
+</div>
+
+<ng-container *ngFor="let product of cart">
+    <app-product-in-cart [product]="product"></app-product-in-cart>
+</ng-container>
+<div class="order">
+    <h3>Итого: {{total_price | currency:'USD':'symbol-narrow'}}</h3>
+    <button (click)="newOrder()">Заказать</button>
+</div>

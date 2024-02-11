@@ -1,0 +1,23 @@
+.main{
+    border-top: 2px  solid #eba46b;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item , .item1, .item2{
+    text-align: center;
+}
+
+.item{
+    width: 25%;
+}
+
+
+.item1{
+    width: 15%;
+}
+
+.item2{
+    width: 10%;
+}

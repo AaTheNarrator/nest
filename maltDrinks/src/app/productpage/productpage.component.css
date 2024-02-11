@@ -1,0 +1,109 @@
+.container{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.price{
+    min-width: 300px;
+    max-width: 500px;
+    padding: 10px;
+    border: #eba46b 2px solid;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.price button {
+    width: 100%;
+    background-color: #eba46b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.price button:hover {
+    background-color: #df7722;
+}
+
+
+.upper{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.placeForPhoto{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    max-height: 60vh;
+}
+
+img{
+    max-height: 60vh;
+}
+
+.allInfo{
+    width: 50%;
+}
+
+.amount{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.amountr{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+#leftBtn, #rightBtn{
+    text-align: center;
+    width: 50px;
+}
+
+#leftBtn{
+    border-radius: 10px 0 0 10px ;
+}
+
+#rightBtn{
+    border-radius: 0 10px 10px 0;
+}
+
+.amount h3{
+    margin: 9px 10px;
+}
+
+.amount .texth3{
+    padding: 0 5px ;
+    border: #eba46b 1px solid;
+}
+
+.buy{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lower{
+    border: 2px solid #ddd;
+    padding: 0 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #ddd;
+}
+
+.lower p{
+    text-align: justify;
+}

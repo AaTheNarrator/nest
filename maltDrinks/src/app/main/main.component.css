@@ -1,0 +1,23 @@
+.main{
+    max-width: 95%;
+    margin: 0 auto;
+}
+.routing{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    border-bottom: #ddd 1px solid;
+    margin-bottom: 30px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+}
+
+a:hover{
+    color:#ec9a57;
+    transition: 0.2s ease;
+}

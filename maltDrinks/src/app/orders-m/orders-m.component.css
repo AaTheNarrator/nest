@@ -1,0 +1,25 @@
+.title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item {
+    text-align: center;
+    width: 40%;
+}
+
+.item1{
+    text-align: center;
+    width: 20%;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.order{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

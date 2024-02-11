@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="products">
+        <app-product-in-warehouse *ngFor="let product of products" [product]="product"></app-product-in-warehouse>
+    </div>
+    
+    <div class="btn">
+        <button (click)="openOrCloseAddMenu()">{{add_btn_text}}</button>
+        <button (click)="saveAllProducts()">Сохранить</button>
+        <button (click)="deleteSelectedProducts()">Удалить</button>
+    </div>
+
+    <div class="AddMenu" *ngIf="open_menu_visible">
+        <select name="product" id="" (change)="onChange($event)">
+            <option *ngFor="let product of productsForAdd" [value]="product.product_id">{{ product.name }}</option>
+        </select>
+        <div class="amount">
+            <h4>Количество:</h4>
+            <input type="number" id="product_amount" [(ngModel)]="product_amount">
+        </div>
+        <button (click)="addProduct()">Добавить</button>
+    </div>
+</div>
+

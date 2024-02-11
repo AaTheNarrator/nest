@@ -1,0 +1,13 @@
+<a [routerLink]="['/customer/product', product.recipe_id]" class="cardOfProduct">
+  <div class="placeForPhoto">
+    <img [src]="'data:image/png;base64,' + product.image" [alt]="product.name" width="200px">
+  </div>
+  <div class="info">
+    <div class="text">
+      <p>{{product.product_name}}</p>
+      <p>{{product.manufacturer}}</p>
+    </div>
+    <button>{{product.price | currency:'USD':'symbol-narrow'}}</button>
+  </div>
+</a>
+

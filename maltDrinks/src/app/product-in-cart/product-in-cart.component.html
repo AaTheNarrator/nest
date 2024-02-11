@@ -1,0 +1,7 @@
+<div class="main" *ngIf="visible">
+    <div class="item"><h4>{{product.manufacturer}}</h4></div>
+    <div class="item"><h4>{{product.recipe_name}}</h4></div>
+    <div class="item1"><h4>{{product.amount}}</h4></div>
+    <div class="item1"><h4>{{product.total_price | currency:'USD':'symbol-narrow'}}</h4></div>
+    <div class="item1"><button (click)="deleteFromCart()">Удалить</button></div>
+</div>

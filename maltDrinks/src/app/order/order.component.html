@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="info_group">
+        <h3>Дата доставки: {{group_order.delivery_date | dateformat}}</h3>
+        <h3>Общая стоимость: {{group_order.total_price | currency:'USD':'symbol-narrow'}}</h3> 
+    </div>
+    <div class="each_order">
+        <div class="title">
+            <div class="item"><h4>Производитель</h4></div>
+            <div class="item"><h4>Название товара</h4></div>
+            <div class="item2"><h4>Количество партий</h4></div>
+            <div class="item1"><h4>Общая стоимость</h4></div>
+            <div class="item1"><h4>Дата доставки</h4></div>
+        </div>
+        <app-each-order *ngFor="let each_order of group_order.orders" [each_order] = "each_order"></app-each-order>
+    </div>
+</div>
+

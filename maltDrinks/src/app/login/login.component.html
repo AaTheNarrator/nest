@@ -1,0 +1,41 @@
+<body>
+    <div class="container">
+        <div class="rectangle rectangle1" id="first-rectangle">
+            <div id="left-panel">
+                <h1>Добро пожаловать производитель</h1>
+                <div class="form-group">
+                    <label for="email-login">Email:</label>
+                    <input type="email" id="email-login" placeholder="Введите ваш email" [(ngModel)]="loginM">
+                </div>
+                <div class="form-group">
+                    <label for="password-login">Пароль:</label>
+                    <input type="password" id="password-login" placeholder="Введите пароль" [(ngModel)]="passwordM">
+                </div>
+                <button id="login-btn" (click)="checkManufacturer()">Войти</button>
+            </div>
+            <div id="right-panel">
+                <h1>Добро пожаловать заказчик</h1>
+                <div class="form-group">
+                    <label for="email-login">Email:</label>
+                    <input type="email" id="email-login" placeholder="Введите ваш email" [(ngModel)]="loginC">
+                </div>
+                <div class="form-group">
+                    <label for="password-login">Пароль:</label>
+                    <input type="password" id="password-login" placeholder="Введите пароль" [(ngModel)]="passwordC">
+                </div>
+                <button id="login-btn" (click)="checkCustomer()">Войти</button>
+            </div>
+        </div>
+        <div class="rectangle rectangle2" id="second-rectangle">
+            <div class="content">
+                <h3>{{infoText}}</h3>
+                <p>Если вы еще не регистрировались, то пожалуйста, пройдите регистрацию </p>
+                <button (click)="moveRectangle()">{{textOnButton}}</button>
+            </div>
+        </div>
+        <div class="btn">
+            <button>Регистрация</button>
+        </div>
+        
+    </div>
+</body>

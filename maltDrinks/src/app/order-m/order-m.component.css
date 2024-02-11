@@ -1,0 +1,27 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #eba46b;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.item {
+    text-align: center;
+    width: 40%;
+}
+
+.item1{
+    text-align: center;
+    width: 20%;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+}

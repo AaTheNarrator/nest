@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="upper">
+        <div class="placeForPhoto">
+            <img [src]="'data:image/png;base64,' + dataOfProduct.image" [alt]="dataOfProduct.name">
+        </div>
+        <div class="allInfo">
+            <h1>{{dataOfProduct.name}}</h1>
+
+            <div class="price">
+                <div class="buy">
+                    <div class="amount">
+                        <h2>Стоимость:</h2>
+                        <h2>{{dataOfProduct.price * countProductForOrder | currency:'USD':'symbol-narrow'}}</h2>
+                    </div>
+                    <div class="amount">
+
+                        <div class="amountl">
+                            <h2>Количество:</h2>
+                        </div>
+
+                        <div class="amountr">
+                            <button (click)="count_plus_minus('+')" id="leftBtn">+</button>
+                            <div class="texth3"><h3>{{countProductForOrder}}</h3></div>
+                            <button (click)="count_plus_minus('-')" id="rightBtn">-</button>
+                        </div>
+                        
+                    </div>
+                    <button (click)="add_to_cart()">Добавить в корзину</button>
+                </div>
+            </div>
+            
+            <h2>Состав:</h2>
+            <div class="composition">
+                <app-composition *ngFor="let product of dataOfProduct.products" [product]="product"></app-composition>
+            </div>
+        </div>
+    </div>
+    <div class="lower">
+        <h2>Описание:</h2>
+        <p>{{dataOfProduct.description}}</p>
+    </div>
+</div>

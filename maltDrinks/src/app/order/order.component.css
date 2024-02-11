@@ -1,0 +1,40 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #eba46b;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.info_group{
+    width: 20%;
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item , .item1, .item2{
+    margin: 0 5px;
+    text-align: center;
+}
+
+.item{
+    width: 25%;
+}
+
+.item1{
+    width: 15%;
+}
+
+.item2{
+    width: 10%;
+}
+
+.each_order{
+    width: 80%;
+}

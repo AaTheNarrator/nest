@@ -1,0 +1,11 @@
+<div class="title" >
+    <div class="item"><h4>Заказчик</h4></div>
+    <div class="item"><h4>Название товара</h4></div>
+    <div class="item1"><h4>Количество партий</h4></div>
+    <div class="item1"><h4>Общая стоимость</h4></div>
+    <div class="item1"><h4>Дата доставки</h4></div>
+</div>
+
+<ng-container *ngFor="let order of orders">
+    <app-order-m [order]="order"></app-order-m>
+</ng-container>
