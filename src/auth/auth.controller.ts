@@ -3,7 +3,7 @@ import {AuthService} from "./auth.service";
 import {LoginCompanyDto} from "./dto/login-company.dto";
 import {CreateCompanyDto} from "../manufacturers/dto/create-company.dto";
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 
 @ApiTags('Авторизация')
 @Controller('auth')

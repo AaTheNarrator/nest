@@ -28,4 +28,8 @@ export class CartService {
         let customer = await this.customersService.searchCustomerByLogin(login)
         return await this.cartRepository.findAll({where:{customer_id : customer.customer_id},include:{all:true}})
     }
+
+    async deleteFromCart(delete_id : number){
+        return await this.cartRepository.destroy({where:{cart_id : delete_id}})
+    }
 }

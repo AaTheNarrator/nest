@@ -3,7 +3,7 @@ import { ManufacturersController } from './manufacturers.controller';
 import { ManufacturersService } from './manufacturers.service';
 import {SequelizeModule} from "@nestjs/sequelize";
 import {Manufacturer} from "./manufacturer.model";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 import {Role} from "../roles/role.model";
 import {RolesModule} from "../roles/roles.module";
 import {AuthModule} from "../auth/auth.module";

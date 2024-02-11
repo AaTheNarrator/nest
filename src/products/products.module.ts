@@ -2,7 +2,7 @@ import {forwardRef, Module} from '@nestjs/common';
 import { ProductsController } from './products.controller';
 import { ProductsService } from './products.service';
 import {SequelizeModule} from "@nestjs/sequelize";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 import {Product} from "./products.model";
 import {AuthModule} from "../auth/auth.module";
 import {RecipesService} from "../recipes/recipes.service";

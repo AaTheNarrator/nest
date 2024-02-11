@@ -2,7 +2,7 @@ import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {ProductsService} from "./products.service";
 import {CreateProductDto} from "./dto/create-product.dto";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 import {Roles} from "../auth/roles-auth.decorator";
 import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {Product} from "./products.model";

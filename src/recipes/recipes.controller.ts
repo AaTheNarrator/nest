@@ -6,7 +6,7 @@ import {RolesGuard} from "../auth/roles.guard";
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {Manufacturer} from "../manufacturers/manufacturer.model";
-import {Recipe} from "./recipe.model";
+import {Recipe} from "./recipes.model";
 
 @ApiTags('Рецепты')
 @Controller('recipes')

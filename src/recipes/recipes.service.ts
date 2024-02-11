@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import {CreateRecipeDto} from "./dto/create-recipe.dto";
 import {InjectModel} from "@nestjs/sequelize";
-import {Recipe} from "./recipe.model";
+import {Recipe} from "./recipes.model";
 import {ManufacturersService} from "../manufacturers/manufacturers.service";
 
 

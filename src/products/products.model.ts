@@ -1,6 +1,6 @@
 import {BelongsTo, BelongsToMany, Column, DataType, Model, Table} from "sequelize-typescript";
 import {Manufacturer} from "../manufacturers/manufacturer.model";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 import {RecipesProducts} from "../recipes_products/recipes_products.model";
 import {Warehouse} from "../warehouse/warehouse.model";
 

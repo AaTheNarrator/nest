@@ -1,6 +1,6 @@
 import {BelongsToMany, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import { Product } from "../products/products.model";
-import { Recipe } from "../recipes/recipe.model";
+import { Recipe } from "../recipes/recipes.model";
 import {Manufacturer} from "../manufacturers/manufacturer.model";
 
 interface WarehouseCreationAttrs{

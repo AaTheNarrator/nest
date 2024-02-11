@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { RecipesProductsController } from './recipes_products.controller';
 import { RecipesProductsService } from './recipes_products.service';
 import {SequelizeModule} from "@nestjs/sequelize";
-import {Recipe} from "../recipes/recipe.model";
+import {Recipe} from "../recipes/recipes.model";
 import {Product} from "../products/products.model";
 import {RecipesProducts} from "./recipes_products.model";
 import {ProductsModule} from "../products/products.module";

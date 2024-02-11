@@ -4,7 +4,7 @@ import {ConfigModule} from "@nestjs/config";
 import { RecipesModule } from './recipes/recipes.module';
 import { ManufacturersModule } from './manufacturers/manufacturers.module';
 import {Manufacturer} from "./manufacturers/manufacturer.model";
-import {Recipe} from "./recipes/recipe.model";
+import {Recipe} from "./recipes/recipes.model";
 import { ProductsModule } from './products/products.module';
 import {Product} from "./products/products.model";
 import { RecipesProductsModule } from './recipes_products/recipes_products.module';
