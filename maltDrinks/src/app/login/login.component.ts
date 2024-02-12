@@ -25,17 +25,15 @@ export class LoginComponent {
         private http : HttpClient){}
 
     checkCustomer(){
-        this.dataService.loginCustomer(this.loginC,this.passwordC)
-            .subscribe(
-                (data)=>{
-                    window.sessionStorage.clear()
-                    window.sessionStorage.setItem("jwt_customer", data.token)
-                    this.router.navigate(['/customer/store'])
-                },
-                (err)=>{
-                    alert(err.error.error)
-                }
-            )
+        this.http.post(this.dataService.server_address + "auth/login/customer",{
+            login : this.loginC,
+            password : this.passwordC
+        }).subscribe((data : any)=>{
+            console.log(data)
+            window.sessionStorage.clear()
+            window.sessionStorage.setItem("jwt_customer", JSON.stringify(data))
+            this.router.navigate(['/customer/store'])
+        })
     }
 
     checkManufacturer(){
@@ -43,8 +41,9 @@ export class LoginComponent {
             login : this.loginM,
             password : this.passwordM
         }).subscribe((data : any)=>{
+            console.log(data)
             window.sessionStorage.clear()
-            window.sessionStorage.setItem("jwt_manufacturer", data.token)
+            window.sessionStorage.setItem("jwt_manufacturer", JSON.stringify(data))
             this.router.navigate(['/manufacturer/orders'])
         })
     }

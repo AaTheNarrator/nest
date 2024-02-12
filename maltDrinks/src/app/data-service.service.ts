@@ -6,7 +6,7 @@ import { Observable, catchError, throwError } from 'rxjs';
     providedIn: 'root'
 })
 export class DataService {
-    server_address = "http://localhost:5000/"
+    server_address = "https://5000-aathenarrator-nest-axf6pocp2pz.ws-eu108.gitpod.io/"//"http://localhost:5000/"
     addProductToWareHouse(data: { manufacturer_id: any; product_id: number; amount: number; }) {
         return this.http.post('http://localhost:8000/api/addProductToWareHouse',data).subscribe((data)=>{})
     }

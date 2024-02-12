@@ -1,11 +1,11 @@
 <a [routerLink]="['/customer/product', product.recipe_id]" class="cardOfProduct">
   <div class="placeForPhoto">
-    <img [src]="'data:image/png;base64,' + product.image" [alt]="product.name" width="200px">
+    <img [src]="product.path_to_photo" [alt]="product.name" width="200px">
   </div>
   <div class="info">
     <div class="text">
-      <p>{{product.product_name}}</p>
-      <p>{{product.manufacturer}}</p>
+      <p>{{product.recipe_name}}</p>
+      <p>{{product.manufacturer.company_name}}</p>
     </div>
     <button>{{product.price | currency:'USD':'symbol-narrow'}}</button>
   </div>

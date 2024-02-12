@@ -56,7 +56,6 @@ export class OrdersService {
         where p.sum_price is not null;
         `;
 
-        // Вы можете использовать методы Sequelize Model для выполнения запроса
         const result = await this.orderRepository.sequelize?.query(query, {
             type: 'SELECT',
         });

@@ -8,7 +8,7 @@ import { Route, Router } from '@angular/router';
 })
 export class MainComponent {
     constructor(private router: Router){
-        let data = window.sessionStorage.getItem("customer_id")
+        let data = window.sessionStorage.getItem("jwt_customer")
         if(!data) this.router.navigate(['login'])
     }
 }

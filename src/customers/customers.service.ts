@@ -3,6 +3,9 @@ import {CreateCompanyDto} from "../manufacturers/dto/create-company.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {Customer} from "./customer.model";
 import {RolesService} from "../roles/roles.service";
+import { FindOneOptions } from 'typeorm';
+import { FindOptions } from 'sequelize';
+import { Role } from 'src/roles/role.model';
 
 @Injectable()
 export class CustomersService {
@@ -22,10 +25,9 @@ export class CustomersService {
     }
 
     async searchCustomerByLogin(login : string){
-        return await this.customerRepository.findOne(
-            {
-                where:{login},
-                include:{all:true}
-            })
+        return await this.customerRepository.findOne({
+            where: { login },
+            include: [Role] // Включаем связанную модель Role
+        });
     }
 }
