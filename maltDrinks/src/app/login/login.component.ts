@@ -36,17 +36,20 @@ export class LoginComponent {
         })
     }
 
-    checkManufacturer(){
-        this.http.post(this.dataService.server_address + "auth/login/manufacturer",{
-            login : this.loginM,
-            password : this.passwordM
-        }).subscribe((data : any)=>{
-            console.log(data)
-            window.sessionStorage.clear()
-            window.sessionStorage.setItem("jwt_manufacturer", JSON.stringify(data))
-            this.router.navigate(['/manufacturer/orders'])
-        })
-    }
+    checkManufacturer(){ 
+        this.http.post(this.dataService.server_address + "auth/login/manufacturer",{ 
+            login : this.loginM, 
+            password : this.passwordM 
+        }).subscribe((data : any)=>{ 
+            console.log(data) 
+            window.sessionStorage.clear() 
+            window.sessionStorage.setItem("jwtmanufacturer", JSON.stringify(data)) 
+            this.router.navigate(['/manufacturer/orders']) 
+        }, 
+        error => {
+            alert('Произошла ошибка при авторизации: пользователь не найден');
+        }); 
+    } 
     
     //Movement
     private isLeft = true

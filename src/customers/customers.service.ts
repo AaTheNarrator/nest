@@ -3,7 +3,6 @@ import {CreateCompanyDto} from "../manufacturers/dto/create-company.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {Customer} from "./customer.model";
 import {RolesService} from "../roles/roles.service";
-import { FindOneOptions } from 'typeorm';
 import { FindOptions } from 'sequelize';
 import { Role } from 'src/roles/role.model';
 

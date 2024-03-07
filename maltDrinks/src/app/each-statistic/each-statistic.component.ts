@@ -11,7 +11,7 @@ export class EachStatisticComponent implements OnInit {
     constructor(private el: ElementRef) {}
 
     ngOnInit() {
-        if (this.each.profit_change > 0) {
+        if (this.each.diff_by_last_month > 0) {
             this.setColor('#66D720');
         }else{
             this.setColor('#F54235');
